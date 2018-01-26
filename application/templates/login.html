@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
+
     <head>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-        <title>Page Title</title>
+        <link rel="shortcut icon" href="/static/favicon.ico">
+        <title>Login page</title>
     </head>
+
     <body>
-        <h1>This is a Heading</h1>
-        <p>This is a paragraph.</p>
+        <form method="POST" action="/">
+            {{ form.csrf_token }} {{ form.name.label }} {{ form.name(size=20) }} {{ form.password.label }} {{ form.password(size=20) }}
+            <input type="submit" value="Go">
+        </form>
     </body>
+
 </html>
