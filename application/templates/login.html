@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="shortcut icon" href="/static/favicon.ico">
+</head>
+
+<body>
+    <form method="POST" action="/">
+        <table>
+            <tr>
+                <td>{{ form.csrf_token }} {{ form.email.label }}:</td>
+                <td>{{ form.email(taborder=1) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password.label }}:</td>
+                <td>{{ form.password(taborder=2) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.signup(taborder=4) }}</td>
+                <td>{{ form.signin(taborder=3) }}</td>
+            </tr>
+        </table>
+        {% if form.errors %}
+        <ul class=errors>
+            {% for field, error in form.errors.items() %}
+            <li>{{ field }}: {{ '; '.join(error) }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </form>
+</body>
+
+</html>
