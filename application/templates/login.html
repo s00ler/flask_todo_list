@@ -3,13 +3,21 @@
 
     <head>
         <link rel="shortcut icon" href="/static/favicon.ico">
-        <title>Login page</title>
     </head>
 
     <body>
         <form method="POST" action="/">
-            {{ form.csrf_token }} {{ form.name.label }} {{ form.name(size=20) }} {{ form.password.label }} {{ form.password(size=20) }}
-            <input type="submit" value="Go">
+            <table>
+                <tr>
+                    <td>{{ form.csrf_token }} {{ form.name.label }} {{ form.name(size=20) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label }} {{ form.password(size=20) }}</td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Go"></td>
+                </tr>
+            </table>
         </form>
     </body>
 
