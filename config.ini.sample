@@ -1,3 +1,5 @@
+# REMOVE .sample to use
+
 [Flask]
 app_name = 'TODO-list'
 app_path = ./application

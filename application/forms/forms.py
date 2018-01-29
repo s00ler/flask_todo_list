@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField, SubmitField, Label
-from wtforms.validators import Email, DataRequired
+from wtforms.validators import Email, DataRequired, EqualTo
 
 
 class LoginForm(FlaskForm):
@@ -8,11 +8,23 @@ class LoginForm(FlaskForm):
                         validators=[Email(), DataRequired()])
 
     password = PasswordField(label='Password', validators=[DataRequired()])
-    signin = SubmitField(label='Sign in')
-    signup = SubmitField(label='Sign up')
+    submit = SubmitField(label='Sign in')
 
 
-class TaskForm(FlaskForm):
-    def __init__(self, text, id):
-        self.name = Label(text=text)
-        self.done = SubmitField(label='Done!')
+class RegisterForm(FlaskForm):
+    email = StringField(label='Email',
+                        validators=[Email(), DataRequired()])
+
+    password = PasswordField(label='Password', validators=[
+                             DataRequired(),
+                             EqualTo('confirm')])
+    confirm = PasswordField(label='Confirm')
+    submit = SubmitField(label='Sign up')
+
+
+class AddTaskForm(FlaskForm):
+    description = StringField(label='New task', validators=[DataRequired()])
+    submit = SubmitField(label='Add')
+
+
+class TaskForm

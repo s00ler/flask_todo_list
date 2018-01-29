@@ -3,11 +3,11 @@
 
     <head>
         <link rel="shortcut icon" href="/static/favicon.ico">
-        <title>Login</title>
+        <title>Register</title>
     </head>
 
     <body>
-        <form method="POST" action="/login">
+        <form method="POST" action="/register">
             <table>
                 <tr>
                     <td>{{ form.csrf_token }} {{ form.email.label }}:</td>
@@ -18,8 +18,12 @@
                     <td>{{ form.password(taborder=2) }}</td>
                 </tr>
                 <tr>
+                    <td>{{ form.confirm.label }}:</td>
+                    <td>{{ form.confirm(taborder=3) }}</td>
+                </tr>
+                <tr>
                     <td></td>
-                    <td>{{ form.submit(taborder=3) }}</td>
+                    <td>{{ form.submit(taborder=4) }}</td>
                 </tr>
             </table>
             {% if form.errors %}
@@ -30,13 +34,7 @@
             </ul>
             {% endif %}
         </form>
-        {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
-        <ul class=flashes>
-            {% for category, message in messages %}
-            <li class="{{ category }}">{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %} {% endwith %}Fisrt time? <a href="/register">Sign up!</a>
+        Already have an account? <a href="/login">Sign in!</a>
     </body>
 
 </html>
