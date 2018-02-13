@@ -27,4 +27,5 @@ class AddTaskForm(FlaskForm):
     submit = SubmitField(label='Add')
 
 
-class TaskForm
+class TaskForm(FlaskForm):
+    pass

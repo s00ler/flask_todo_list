@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 from os.path import abspath
 from flask_sqlalchemy import SQLAlchemy
 from configparser import ConfigParser
+from flask_mail import Mail
 
 config = ConfigParser()
 config.read('./config.ini')
@@ -19,3 +20,4 @@ CSRFProtect(app)
 bcrypt = Bcrypt(app)
 mail = Mail(app)
 database = SQLAlchemy(app)
+database.create_all()
