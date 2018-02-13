@@ -1,6 +1,0 @@
-flask
-flask_sqlalchemy
-flask_bcrypt
-flask_mail
-flask_wtf
-itsdangerous
